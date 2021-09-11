@@ -1,8 +1,7 @@
 import re
 
-
 def process_message(message, response_array, response):
-    # Splits the message and the punctuation into an array
+   
     list_message = re.findall(r"[\w']+|[.,!?;]", message.lower())
 
     # Scores the amount of words in the message
@@ -11,13 +10,12 @@ def process_message(message, response_array, response):
         if word in response_array:
             score = score + 1
 
-    # Returns the response and the score of the response
+ 
     # print(score, response)
     return [score, response]
 
-
 def get_response(message):
-    # Add your custom responses here
+   
     response_list = [
         process_message(message, ['hello', 'hi', 'hey'], 'Hey there!'),
         process_message(message, ['bye', 'goodbye'], 'Goodbye!'),
@@ -27,19 +25,15 @@ def get_response(message):
         process_message(message, ['what','is','your', 'age'], 'I am 20 decades old '),
         process_message(message, ['any', 'hobbies'], 'chatting with you '),
         process_message(message, ['can', 'i' ,'help' ,'others'], 'make tea for others:) ')
-        # Add more responses here
+     
     ]
-
-    # Checks all of the response scores and returns the best matching response
     response_scores = []
     for response in response_list:
         response_scores.append(response[0])
-
-    # Get the max value for the best response and store it into a variable
+        
     winning_response = max(response_scores)
     matching_response = response_list[response_scores.index(winning_response)]
 
-    # Return the matching response to the user
     if winning_response == 0:
         bot_response = 'I didn\'t understand what you wrote.'
     else:
