@@ -2,7 +2,7 @@ import logging
 from telegram.ext import *
 import responses
 
-API_KEY = '1996797915:AAGodKJJfiJXBM5dJ6YuiuWZS3Jf--9hv_E'
+API_KEY = 'donot_copy_my_key'
 
 
 
